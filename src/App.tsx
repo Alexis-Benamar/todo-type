@@ -37,7 +37,7 @@ const App: React.FC = () => {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6">
-            Typescript-Todo
+            TodoType
           </Typography>
         </Toolbar>
       </AppBar>
