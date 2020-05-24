@@ -1,25 +1,51 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { AppBar, Container, Toolbar, Typography } from '@material-ui/core'
 
-function App() {
+import './App.css'
+import TodoList from './TodoList'
+import AddTodoForm from './AddTodoForm';
+
+const initialTodos: Array<TodoType> = []
+
+const App: React.FC = () => {
+  const [todos, setTodos] = useState(initialTodos)
+
+  const toggleTodo: ToggleTodoType = selectedTodo => {
+    const newTodos = todos.map(todo => {
+      if (todo === selectedTodo) {
+        return {
+          ...todo,
+          complete: !todo.complete
+        }
+      }
+      return todo
+    })
+    setTodos(newTodos)
+  }
+
+  const addTodoHandler: AddTodoHandlerType = (newTodo) => {
+    setTodos([...todos, newTodo])
+  }
+
+  const removeTodoHandler: RemoveTodoHandlerType = (idx) => {
+    console.log(idx)
+    setTodos(todos.filter((_, i) => idx !== i))
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h6">
+            Typescript-Todo
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <Container fixed maxWidth="xs">
+        <AddTodoForm addTodoHandler={addTodoHandler} />
+        <TodoList todos={todos} toggleTodo={toggleTodo} removeTodoHandler={removeTodoHandler} />
+      </Container>
+    </>
   );
 }
 
