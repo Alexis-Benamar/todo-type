@@ -11,6 +11,6 @@ I gave a go at React with Typescript, React-Hook-Forms & Material-UI by making a
 ## Roadmap
 
 - [ ] Styled Components & Improved Styling
-- [ ] Reducer
+- [ ] Context & Reducer
 - [ ] LocalStorage to persist todos
 - [ ] i18n support
