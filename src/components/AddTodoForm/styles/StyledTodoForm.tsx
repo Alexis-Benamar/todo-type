@@ -1,9 +1,6 @@
 import styled from 'styled-components'
-import {Button} from '@material-ui/core'
 
-import AddTodoForm from './AddTodoForm'
-
-const StyledTodoForm = styled(AddTodoForm)`
+const StyledTodoForm = styled.form`
   display: flex;
   flex-direction: column;
 

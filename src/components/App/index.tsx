@@ -9,9 +9,9 @@ import {
 import GithubIcon from '@material-ui/icons/GitHub'
 import { createGlobalStyle } from 'styled-components'
 
-import StyledAppContainer from './StyledAppContainer'
-import StyledTodoForm from './StyledTodoForm'
-import TodoList from './TodoList'
+import AddTodoForm from '../AddTodoForm'
+import { StyledAppContainer } from './styles'
+import TodoList from '../TodoList'
 
 const initialTodos: Array<TodoType> = []
 
@@ -22,7 +22,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-const App: React.FC = () => {
+const App = () => {
   const [todos, setTodos] = useState(initialTodos)
 
   const toggleTodo: ToggleTodoType = selectedTodo => {
@@ -63,7 +63,7 @@ const App: React.FC = () => {
         </Container>
       </AppBar>
       <StyledAppContainer>
-        <StyledTodoForm className="StyledTodoForm" addTodoHandler={addTodoHandler} />
+        <AddTodoForm className="AddTodoForm" addTodoHandler={addTodoHandler} />
         <TodoList className="TodoList" todos={todos} toggleTodo={toggleTodo} removeTodoHandler={removeTodoHandler} />
       </StyledAppContainer>
     </>

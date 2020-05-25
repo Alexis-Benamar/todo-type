@@ -3,7 +3,6 @@ import {
     Checkbox,
     ExpansionPanel,
     ExpansionPanelDetails,
-    ExpansionPanelSummary,
     FormControlLabel,
     IconButton,
     Typography
@@ -11,7 +10,7 @@ import {
 import DeleteIcon from '@material-ui/icons/Delete'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
-import StyledTodoSummary from './StyledTodoSummary'
+import { StyledTodoSummary } from './styles'
 
 interface ITodoListItem {
     todo: TodoType,

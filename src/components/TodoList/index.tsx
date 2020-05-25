@@ -1,7 +1,7 @@
 import React from 'react'
 import { Typography } from '@material-ui/core'
 
-import StyledContainer from './StyledContainer'
+import StyledContainer from '../StyledContainer'
 import TodoListItem from './TodoListItem'
 
 interface ITodoList {
@@ -15,7 +15,7 @@ const TodoList: React.FC<ITodoList> = ({ className, todos, toggleTodo, removeTod
 
     if (todos.length === 0) return(
         <StyledContainer>
-            <Typography>No todos 😞</Typography>
+            <Typography>No todos <span role="img" aria-label="sad emoji">😞</span></Typography>
         </StyledContainer>
     )
 

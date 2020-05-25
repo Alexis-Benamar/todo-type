@@ -2,7 +2,8 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import { Button, TextField } from '@material-ui/core'
 
-import StyledContainer from './StyledContainer'
+import StyledContainer from '../StyledContainer'
+import { StyledTodoForm } from './styles'
 
 interface IAddTodoForm {
     className: string,
@@ -10,7 +11,7 @@ interface IAddTodoForm {
 }
 
 const AddTodoForm: React.FC<IAddTodoForm> = ({ className, addTodoHandler }) => {
-    const {register, errors, handleSubmit, reset} = useForm()
+    const {register, handleSubmit, reset} = useForm()
 
     const onSubmit = (data: any) => {
         reset()
@@ -21,8 +22,8 @@ const AddTodoForm: React.FC<IAddTodoForm> = ({ className, addTodoHandler }) => {
     }
 
     return (
-        <StyledContainer className="StyledContainer">
-            <form className={className} onSubmit={handleSubmit(onSubmit)}>
+        <StyledContainer className={className} >
+            <StyledTodoForm onSubmit={handleSubmit(onSubmit)}>
                 <TextField
                     required
                     name="title"
@@ -40,7 +41,7 @@ const AddTodoForm: React.FC<IAddTodoForm> = ({ className, addTodoHandler }) => {
                     inputRef={register({required: true})}
                 />
                 <Button className="Button" variant="contained" color="primary" type="submit">add todo</Button>
-            </form>
+            </StyledTodoForm>
         </StyledContainer>
     )
 }
