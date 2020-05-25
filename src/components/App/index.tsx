@@ -43,8 +43,7 @@ const App = () => {
   }
 
   const removeTodoHandler: RemoveTodoHandlerType = (idx) => {
-    console.log(idx)
-    setTodos(todos.filter((_, i) => idx !== i))
+    setTodos(todos.filter((todo) => idx !== todo.idx))
   }
 
   return (

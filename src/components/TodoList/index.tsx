@@ -21,8 +21,8 @@ const TodoList: React.FC<ITodoList> = ({ className, todos, toggleTodo, removeTod
 
     return (
         <div className={className}>
-            {todos.map((todo, idx) => (
-                <TodoListItem todo={todo} toggleTodo={toggleTodo} removeTodoHandler={removeTodoHandler} idx={idx} key={idx}/>
+            {todos.map((todo) => (
+                <TodoListItem todo={todo} toggleTodo={toggleTodo} removeTodoHandler={removeTodoHandler} key={todo.idx}/>
             ))}
         </div>
     )

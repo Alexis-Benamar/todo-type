@@ -17,6 +17,7 @@ const AddTodoForm: React.FC<IAddTodoForm> = ({ className, addTodoHandler }) => {
         reset()
         addTodoHandler({
             ...data,
+            idx: Date.now(),
             complete: false
         })
     }

@@ -15,11 +15,10 @@ import { StyledTodoSummary } from './styles'
 interface ITodoListItem {
     todo: TodoType,
     toggleTodo: ToggleTodoType,
-    removeTodoHandler: RemoveTodoHandlerType,
-    idx: number,
+    removeTodoHandler: RemoveTodoHandlerType
 }
 
-const TodoListItem: React.FC<ITodoListItem> = ({ todo, toggleTodo, removeTodoHandler, idx }) => {
+const TodoListItem: React.FC<ITodoListItem> = ({ todo, toggleTodo, removeTodoHandler }) => {
     return (
         <ExpansionPanel>
             <StyledTodoSummary
@@ -39,7 +38,7 @@ const TodoListItem: React.FC<ITodoListItem> = ({ todo, toggleTodo, removeTodoHan
                     aria-label="Acknowledge"
                     onClick={(event) => {
                         event.stopPropagation()
-                        removeTodoHandler(idx)
+                        removeTodoHandler(todo.idx)
                     }}
                     onFocus={(event) => event.stopPropagation()}
                     style={{marginLeft: 'auto'}}
