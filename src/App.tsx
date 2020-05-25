@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
-import { AppBar, Container, Toolbar, Typography } from '@material-ui/core'
+import {
+  AppBar,
+  Container,
+  IconButton,
+  Toolbar,
+  Typography
+} from '@material-ui/core'
+import GithubIcon from '@material-ui/icons/GitHub'
 
 import './App.css'
-import TodoList from './TodoList'
 import AddTodoForm from './AddTodoForm';
+import TodoList from './TodoList'
 
 const initialTodos: Array<TodoType> = []
 
@@ -35,11 +42,16 @@ const App: React.FC = () => {
   return (
     <>
       <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h6">
-            TodoType
-          </Typography>
-        </Toolbar>
+        <Container fixed>
+          <Toolbar>
+            <Typography variant="h6">
+              TodoType
+            </Typography>
+            <IconButton style={{color: 'white', marginLeft: 'auto'}} href="https://github.com/Alexis-Benamar/todo-type" target="_blank">
+              <GithubIcon/>
+            </IconButton>
+          </Toolbar>
+        </Container>
       </AppBar>
       <Container fixed maxWidth="xs">
         <AddTodoForm addTodoHandler={addTodoHandler} />
