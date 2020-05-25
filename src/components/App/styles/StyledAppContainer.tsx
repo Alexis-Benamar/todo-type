@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import StyledContainer from '../../StyledContainer'
+import StyledContainer from '~components/StyledContainer'
 
 const StyledAppContainer = styled.div`
   margin: 0 auto;

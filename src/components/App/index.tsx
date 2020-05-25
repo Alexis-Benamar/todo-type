@@ -9,9 +9,9 @@ import {
 import GithubIcon from '@material-ui/icons/GitHub'
 import { createGlobalStyle } from 'styled-components'
 
-import AddTodoForm from '../AddTodoForm'
+import AddTodoForm from '~components/AddTodoForm'
 import { StyledAppContainer } from './styles'
-import TodoList from '../TodoList'
+import TodoList from '~components/TodoList'
 
 const initialTodos: Array<TodoType> = []
 

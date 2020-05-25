@@ -2,7 +2,7 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import { Button, TextField } from '@material-ui/core'
 
-import StyledContainer from '../StyledContainer'
+import StyledContainer from '~components/StyledContainer'
 import { StyledTodoForm } from './styles'
 
 interface IAddTodoForm {
