@@ -1,20 +1,26 @@
 import React from 'react'
 import { Typography } from '@material-ui/core'
 
+import StyledContainer from './StyledContainer'
 import TodoListItem from './TodoListItem'
 
 interface ITodoList {
+    className: string
     todos: Array<TodoType>
     toggleTodo: ToggleTodoType,
     removeTodoHandler: RemoveTodoHandlerType
 }
 
-const TodoList: React.FC<ITodoList> = ({ todos, toggleTodo, removeTodoHandler }) => {
+const TodoList: React.FC<ITodoList> = ({ className, todos, toggleTodo, removeTodoHandler }) => {
 
-    if (todos.length === 0) return <Typography>No todos</Typography>
+    if (todos.length === 0) return(
+        <StyledContainer>
+            <Typography>No todos 😞</Typography>
+        </StyledContainer>
+    )
 
     return (
-        <div style={{padding: '24px', backgroundColor: '#f5f5f5'}}>
+        <div className={className}>
             {todos.map((todo, idx) => (
                 <TodoListItem todo={todo} toggleTodo={toggleTodo} removeTodoHandler={removeTodoHandler} idx={idx} key={idx}/>
             ))}

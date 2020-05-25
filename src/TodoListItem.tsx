@@ -11,6 +11,8 @@ import {
 import DeleteIcon from '@material-ui/icons/Delete'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
+import StyledTodoSummary from './StyledTodoSummary'
+
 interface ITodoListItem {
     todo: TodoType,
     toggleTodo: ToggleTodoType,
@@ -21,10 +23,11 @@ interface ITodoListItem {
 const TodoListItem: React.FC<ITodoListItem> = ({ todo, toggleTodo, removeTodoHandler, idx }) => {
     return (
         <ExpansionPanel>
-            <ExpansionPanelSummary
+            <StyledTodoSummary
                 expandIcon={<ExpandMoreIcon/>}
                 aria-label="Expand"
                 aria-controls="additional-actions1-content"
+                className={todo.complete ? 'complete' : ''}
             >
                 <FormControlLabel
                     aria-label="Acknowledge"
@@ -44,7 +47,7 @@ const TodoListItem: React.FC<ITodoListItem> = ({ todo, toggleTodo, removeTodoHan
                 >
                     <DeleteIcon />
                 </IconButton>
-            </ExpansionPanelSummary>
+            </StyledTodoSummary>
             <ExpansionPanelDetails>
                 <Typography>{todo.text}</Typography>
             </ExpansionPanelDetails>

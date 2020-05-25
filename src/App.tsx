@@ -7,12 +7,20 @@ import {
   Typography
 } from '@material-ui/core'
 import GithubIcon from '@material-ui/icons/GitHub'
+import { createGlobalStyle } from 'styled-components'
 
-import './App.css'
-import AddTodoForm from './AddTodoForm';
+import StyledAppContainer from './StyledAppContainer'
+import StyledTodoForm from './StyledTodoForm'
 import TodoList from './TodoList'
 
 const initialTodos: Array<TodoType> = []
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0;
+    background-color: #F5F5F5
+  }
+`
 
 const App: React.FC = () => {
   const [todos, setTodos] = useState(initialTodos)
@@ -41,6 +49,7 @@ const App: React.FC = () => {
 
   return (
     <>
+      <GlobalStyle/>
       <AppBar position="static">
         <Container fixed>
           <Toolbar>
@@ -53,10 +62,10 @@ const App: React.FC = () => {
           </Toolbar>
         </Container>
       </AppBar>
-      <Container fixed maxWidth="xs">
-        <AddTodoForm addTodoHandler={addTodoHandler} />
-        <TodoList todos={todos} toggleTodo={toggleTodo} removeTodoHandler={removeTodoHandler} />
-      </Container>
+      <StyledAppContainer>
+        <StyledTodoForm className="StyledTodoForm" addTodoHandler={addTodoHandler} />
+        <TodoList className="TodoList" todos={todos} toggleTodo={toggleTodo} removeTodoHandler={removeTodoHandler} />
+      </StyledAppContainer>
     </>
   );
 }
