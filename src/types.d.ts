@@ -1,3 +1,7 @@
+type AddTodoHandlerType = (state, newTodo: TodoType) => void
+
+type RemoveTodoHandlerType = (state, deletedTodo: number) => void
+
 type TodoType = {
     title: string
     text: string
@@ -5,8 +9,4 @@ type TodoType = {
     complete: boolean
 }
 
-type ToggleTodoType = (selectedTodo: TodoType) => void
-
-type AddTodoHandlerType = (newTodo: TodoType) => void
-
-type RemoveTodoHandlerType = (deletedTodo: number) => void
+type ToggleTodoType = (state, selectedTodo: TodoType) => void

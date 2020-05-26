@@ -4,22 +4,27 @@ import { Button, TextField } from '@material-ui/core'
 
 import StyledContainer from '~components/StyledContainer'
 import { StyledTodoForm } from './styles'
+import { useTodos } from '~providers/TodosProvider'
 
 interface IAddTodoForm {
     className: string,
-    addTodoHandler: AddTodoHandlerType
 }
 
-const AddTodoForm: React.FC<IAddTodoForm> = ({ className, addTodoHandler }) => {
-    const {register, handleSubmit, reset} = useForm()
+const AddTodoForm: React.FC<IAddTodoForm> = ({ className }) => {
+    const { dispatch } = useTodos()
+
+    const { register, handleSubmit, reset } = useForm()
 
     const onSubmit = (data: any) => {
-        reset()
-        addTodoHandler({
-            ...data,
-            idx: Date.now(),
-            complete: false
+        dispatch({
+            type: 'add',
+            newTodo: {
+                ...data,
+                idx: Date.now(),
+                complete: false
+            }
         })
+        reset()
     }
 
     return (

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   AppBar,
   Container,
@@ -12,8 +12,7 @@ import { createGlobalStyle } from 'styled-components'
 import AddTodoForm from '~components/AddTodoForm'
 import { StyledAppContainer } from './styles'
 import TodoList from '~components/TodoList'
-
-const initialTodos: Array<TodoType> = []
+import TodosProvider from '~providers/TodosProvider'
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -23,31 +22,8 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const App = () => {
-  const [todos, setTodos] = useState(initialTodos)
-
-  const toggleTodo: ToggleTodoType = selectedTodo => {
-    const newTodos = todos.map(todo => {
-      if (todo === selectedTodo) {
-        return {
-          ...todo,
-          complete: !todo.complete
-        }
-      }
-      return todo
-    })
-    setTodos(newTodos)
-  }
-
-  const addTodoHandler: AddTodoHandlerType = (newTodo) => {
-    setTodos([...todos, newTodo])
-  }
-
-  const removeTodoHandler: RemoveTodoHandlerType = (idx) => {
-    setTodos(todos.filter((todo) => idx !== todo.idx))
-  }
-
   return (
-    <>
+    <TodosProvider>
       <GlobalStyle/>
       <AppBar position="static">
         <Container fixed>
@@ -62,10 +38,10 @@ const App = () => {
         </Container>
       </AppBar>
       <StyledAppContainer>
-        <AddTodoForm className="AddTodoForm" addTodoHandler={addTodoHandler} />
-        <TodoList className="TodoList" todos={todos} toggleTodo={toggleTodo} removeTodoHandler={removeTodoHandler} />
+        <AddTodoForm className="AddTodoForm" />
+        <TodoList className="TodoList" />
       </StyledAppContainer>
-    </>
+    </TodosProvider>
   );
 }
 

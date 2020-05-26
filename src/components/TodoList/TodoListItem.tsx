@@ -11,14 +11,15 @@ import DeleteIcon from '@material-ui/icons/Delete'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
 import { StyledTodoSummary } from './styles'
+import { useTodos } from '~providers/TodosProvider'
 
 interface ITodoListItem {
     todo: TodoType,
-    toggleTodo: ToggleTodoType,
-    removeTodoHandler: RemoveTodoHandlerType
 }
 
-const TodoListItem: React.FC<ITodoListItem> = ({ todo, toggleTodo, removeTodoHandler }) => {
+const TodoListItem: React.FC<ITodoListItem> = ({ todo }) => {
+    const { dispatch } = useTodos() 
+
     return (
         <ExpansionPanel>
             <StyledTodoSummary
@@ -31,14 +32,14 @@ const TodoListItem: React.FC<ITodoListItem> = ({ todo, toggleTodo, removeTodoHan
                     aria-label="Acknowledge"
                     onClick={(event) => event.stopPropagation()}
                     onFocus={(event) => event.stopPropagation()}
-                    control={<Checkbox checked={todo.complete} onChange={() => toggleTodo(todo)}/>}
+                    control={<Checkbox checked={todo.complete} onChange={() => console.log('toggleTodo')}/>}
                     label={todo.title}
                 />
                 <IconButton
                     aria-label="Acknowledge"
                     onClick={(event) => {
                         event.stopPropagation()
-                        removeTodoHandler(todo.idx)
+                        dispatch({ type: 'remove', idx: todo.idx })
                     }}
                     onFocus={(event) => event.stopPropagation()}
                     style={{marginLeft: 'auto'}}

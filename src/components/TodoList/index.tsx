@@ -3,17 +3,16 @@ import { Typography } from '@material-ui/core'
 
 import StyledContainer from '~components/StyledContainer'
 import TodoListItem from './TodoListItem'
+import { useTodos } from '~providers/TodosProvider'
 
 interface ITodoList {
     className: string
-    todos: Array<TodoType>
-    toggleTodo: ToggleTodoType,
-    removeTodoHandler: RemoveTodoHandlerType
 }
 
-const TodoList: React.FC<ITodoList> = ({ className, todos, toggleTodo, removeTodoHandler }) => {
+const TodoList: React.FC<ITodoList> = ({ className }) => {
+    const { state } = useTodos()
 
-    if (todos.length === 0) return(
+    if (state.todos.length === 0) return(
         <StyledContainer>
             <Typography>No todos <span role="img" aria-label="sad emoji">😞</span></Typography>
         </StyledContainer>
@@ -21,8 +20,8 @@ const TodoList: React.FC<ITodoList> = ({ className, todos, toggleTodo, removeTod
 
     return (
         <div className={className}>
-            {todos.map((todo) => (
-                <TodoListItem todo={todo} toggleTodo={toggleTodo} removeTodoHandler={removeTodoHandler} key={todo.idx}/>
+            {state.todos.map((todo) => (
+                <TodoListItem todo={todo} key={todo.idx}/>
             ))}
         </div>
     )
