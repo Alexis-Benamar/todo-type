@@ -2,7 +2,7 @@ import React from 'react'
 import { Typography } from '@material-ui/core'
 
 import StyledContainer from '~components/StyledContainer'
-import TodoListItem from './TodoListItem'
+import TodoListItem from '~components/TodoListItem'
 import { useTodos } from '~providers/TodosProvider'
 
 interface ITodoList {
