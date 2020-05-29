@@ -13,6 +13,6 @@ I gave a go at React with Typescript, React-Hook-Forms & Material-UI by making a
 - [x] Styled Components & Improved Styling
 - [x] Context & Reducer
 - [ ] LocalStorage to persist todos
-- [ ] i18n support
+- [x] i18n support
 - [ ] ? sorting by date / importance
 - [ ] ? grid design

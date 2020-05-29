@@ -1,5 +1,6 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
 import { Button, TextField } from '@material-ui/core'
 
 import StyledContainer from '~components/StyledContainer'
@@ -12,8 +13,8 @@ interface IAddTodoForm {
 
 const AddTodoForm: React.FC<IAddTodoForm> = ({ className }) => {
     const { dispatch } = useTodos()
-
     const { register, handleSubmit, reset } = useForm()
+    const { t } = useTranslation()
 
     const onSubmit = (data: any) => {
         dispatch({
@@ -33,7 +34,7 @@ const AddTodoForm: React.FC<IAddTodoForm> = ({ className }) => {
                 <TextField
                     required
                     name="title"
-                    label="Title"
+                    label={t('form.title')}
                     variant="outlined"
                     inputRef={register({required: true})}
                 />
@@ -42,11 +43,13 @@ const AddTodoForm: React.FC<IAddTodoForm> = ({ className }) => {
                     multiline
                     rows={3}
                     name="text"
-                    label="Text"
+                    label={t('form.text')}
                     variant="outlined"
                     inputRef={register({required: true})}
                 />
-                <Button className="Button" variant="contained" color="primary" type="submit">add todo</Button>
+                <Button className="Button" variant="contained" color="primary" type="submit">
+                    {t('form.submit')}
+                </Button>
             </StyledTodoForm>
         </StyledContainer>
     )

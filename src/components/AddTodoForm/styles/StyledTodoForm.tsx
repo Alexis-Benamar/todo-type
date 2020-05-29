@@ -9,7 +9,6 @@ const StyledTodoForm = styled.form`
   }
 
   .MuiButton-root {
-    width: 150px;
     margin: 0 auto;
   }
 `

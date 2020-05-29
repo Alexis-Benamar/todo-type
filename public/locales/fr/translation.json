@@ -1,0 +1,15 @@
+{
+  "navbar": {
+    "subtitle": "Des todos. Avec des types !"
+  },
+
+  "form": {
+    "title": "Titre",
+    "text": "Texte",
+    "submit": "Ajouter un todo"
+  },
+
+  "todolist": {
+    "no_todos": "Pas de todos"
+  }
+}

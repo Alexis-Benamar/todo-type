@@ -1,0 +1,15 @@
+{
+  "navbar": {
+    "subtitle": "Todos. With types!"
+  },
+
+  "form": {
+    "title": "Title",
+    "text": "Text",
+    "submit": "Add todo"
+  },
+
+  "todolist": {
+    "no_todos": "No todos"
+  }
+}

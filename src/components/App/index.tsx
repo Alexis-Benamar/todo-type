@@ -1,15 +1,12 @@
-import React from 'react';
+import React, { Suspense } from 'react';
+import { createGlobalStyle } from 'styled-components'
 import {
   AppBar,
-  Container,
-  IconButton,
-  Toolbar,
-  Typography
+  Toolbar
 } from '@material-ui/core'
-import GithubIcon from '@material-ui/icons/GitHub'
-import { createGlobalStyle } from 'styled-components'
 
 import AddTodoForm from '~components/AddTodoForm'
+import Navbar from '~components/Navbar'
 import { StyledAppContainer } from './styles'
 import TodoList from '~components/TodoList'
 import TodosProvider from '~providers/TodosProvider'
@@ -21,28 +18,24 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-const App = () => {
-  return (
-    <TodosProvider>
-      <GlobalStyle/>
-      <AppBar position="static">
-        <Container fixed>
-          <Toolbar>
-            <Typography variant="h6">
-              TodoType
-            </Typography>
-            <IconButton style={{color: 'white', marginLeft: 'auto'}} href="https://github.com/Alexis-Benamar/todo-type" target="_blank">
-              <GithubIcon/>
-            </IconButton>
-          </Toolbar>
-        </Container>
-      </AppBar>
+const AppFallback = () => (
+  <AppBar>
+    <Toolbar>
+    </Toolbar>
+  </AppBar>
+)
+
+const App = () => (
+  <TodosProvider>
+    <GlobalStyle/>
+    <Suspense fallback={<AppFallback/>}>
+      <Navbar/>
       <StyledAppContainer>
         <AddTodoForm className="AddTodoForm" />
         <TodoList className="TodoList" />
       </StyledAppContainer>
-    </TodosProvider>
-  );
-}
+    </Suspense>
+  </TodosProvider>
+)
 
 export default App;
