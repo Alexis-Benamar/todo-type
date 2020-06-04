@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-import StyledContainer from '~components/StyledContainer'
+import StyledContainer from './StyledContainer'
 
-const StyledAppContainer = styled.div`
+const AppContainer = styled.div`
   margin: 0 auto;
   padding: 0 16px;
   max-width: 400px;
@@ -13,4 +13,4 @@ const StyledAppContainer = styled.div`
   }
 `
 
-export default StyledAppContainer
+export default AppContainer

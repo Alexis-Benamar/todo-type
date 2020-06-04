@@ -2,7 +2,7 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Typography } from '@material-ui/core'
 
-import StyledContainer from '~components/StyledContainer'
+import StyledContainer from '~styles/StyledContainer'
 import TodoListItem from '~components/TodoListItem'
 import { useTodos } from '~providers/TodosProvider'
 

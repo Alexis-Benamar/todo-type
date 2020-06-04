@@ -32,7 +32,7 @@ const TodoListItem: React.FC<ITodoListItem> = ({ todo }) => {
                     aria-label="Acknowledge"
                     onClick={(event) => event.stopPropagation()}
                     onFocus={(event) => event.stopPropagation()}
-                    control={<Checkbox checked={todo.complete} onChange={() => console.log('toggleTodo')}/>}
+                    control={<Checkbox checked={todo.complete} onChange={() => dispatch({ type:"toggle", todo })}/>}
                     label={todo.title}
                 />
                 <IconButton

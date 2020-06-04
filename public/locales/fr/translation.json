@@ -5,8 +5,8 @@
 
   "form": {
     "title": "Titre",
-    "text": "Texte",
-    "submit": "Ajouter un todo"
+    "text": "Texte (optionnel)",
+    "submit": "Ajouter"
   },
 
   "todolist": {

@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { Button, TextField } from '@material-ui/core'
 
-import StyledContainer from '~components/StyledContainer'
+import StyledContainer from '~styles/StyledContainer'
 import { StyledTodoForm } from './styles'
 import { useTodos } from '~providers/TodosProvider'
 
@@ -39,13 +39,12 @@ const AddTodoForm: React.FC<IAddTodoForm> = ({ className }) => {
                     inputRef={register({required: true})}
                 />
                 <TextField
-                    required
                     multiline
                     rows={3}
                     name="text"
                     label={t('form.text')}
                     variant="outlined"
-                    inputRef={register({required: true})}
+                    inputRef={register}
                 />
                 <Button className="Button" variant="contained" color="primary" type="submit">
                     {t('form.submit')}

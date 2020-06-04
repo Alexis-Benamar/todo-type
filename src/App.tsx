@@ -7,7 +7,7 @@ import {
 
 import AddTodoForm from '~components/AddTodoForm'
 import Navbar from '~components/Navbar'
-import { StyledAppContainer } from './styles'
+import AppContainer from '~styles/AppContainer'
 import TodoList from '~components/TodoList'
 import TodosProvider from '~providers/TodosProvider'
 
@@ -30,10 +30,10 @@ const App = () => (
     <GlobalStyle/>
     <Suspense fallback={<AppFallback/>}>
       <Navbar/>
-      <StyledAppContainer>
+      <AppContainer>
         <AddTodoForm className="AddTodoForm" />
         <TodoList className="TodoList" />
-      </StyledAppContainer>
+      </AppContainer>
     </Suspense>
   </TodosProvider>
 )
