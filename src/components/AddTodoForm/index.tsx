@@ -49,6 +49,9 @@ const AddTodoForm: React.FC<IAddTodoForm> = ({ className }) => {
                 <Button className="Button" variant="contained" color="primary" type="submit">
                     {t('form.submit')}
                 </Button>
+                <Button className="Button" variant="contained" color="secondary" onClick={() => dispatch({type: 'clear'})}>
+                    {t('form.clear')}
+                </Button>
             </StyledTodoForm>
         </StyledContainer>
     )

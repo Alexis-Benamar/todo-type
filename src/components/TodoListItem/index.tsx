@@ -17,8 +17,10 @@ interface ITodoListItem {
     todo: TodoType,
 }
 
-const TodoListItem: React.FC<ITodoListItem> = ({ todo }) => {
+const TodoListItem: React.FC<ITodoListItem> = React.memo(({ todo }) => {
     const { dispatch } = useTodos() 
+
+    console.log(todo)
 
     return (
         <ExpansionPanel>
@@ -52,6 +54,6 @@ const TodoListItem: React.FC<ITodoListItem> = ({ todo }) => {
             </ExpansionPanelDetails>
         </ExpansionPanel>
     )
-}
+})
 
 export default TodoListItem

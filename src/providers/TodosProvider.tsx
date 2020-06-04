@@ -1,4 +1,4 @@
-import React, { useContext, useReducer } from 'react'
+import React, { useContext, useEffect, useReducer } from 'react'
 
 type State = {
     todos: TodoType[]
@@ -8,6 +8,7 @@ type Action =
     | { type: 'add', newTodo: TodoType }
     | { type: 'remove', idx: number }
     | { type: 'toggle', todo: TodoType }
+    | { type: 'clear' }
 
 type TodosContextType = {
     state: State
@@ -34,6 +35,8 @@ const todosReducer = (state: State, action: Action): State => {
                 }
                 return todo
             })} 
+        case 'clear':
+            return initialState
         default:
             return state
     }
@@ -50,7 +53,14 @@ const useTodos = () => {
 }
 
 const TodosProvider: React.FC = ({ children }) => {
-    const [state, dispatch] = useReducer(todosReducer, initialState)
+    const [state, dispatch] = useReducer(todosReducer, initialState, () => {
+        const localTodos = localStorage.getItem('todos')
+        return localTodos ? JSON.parse(localTodos) : { todos: [] }
+    })
+
+    useEffect(() => {
+        localStorage.setItem('todos', JSON.stringify(state))
+    }, [state])
 
     return (
         <TodosContext.Provider value={{state, dispatch}}>
