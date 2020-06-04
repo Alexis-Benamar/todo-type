@@ -1,15 +1,12 @@
 import styled from 'styled-components'
 
-import StyledContainer from './StyledContainer'
-
 const AppContainer = styled.div`
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 16px;
   max-width: 400px;
 
-  ${StyledContainer},
   .TodoList {
-    margin-top: 12px;
+    margin-top: 16px;
   }
 `
 

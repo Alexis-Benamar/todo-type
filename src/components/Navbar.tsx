@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import {
   AppBar,
@@ -11,6 +12,10 @@ import GithubIcon from '@material-ui/icons/GitHub'
 
 import LangSelect from '~components/LangSelect'
 
+const Subtitle = styled(Typography)`
+  margin-left: 16px !important;
+`
+
 const Navbar = () => {
   const { t } = useTranslation()
 
@@ -21,9 +26,9 @@ const Navbar = () => {
           <Typography variant="h6">
             TodoType
           </Typography>
-          <Typography variant="subtitle1">
-            <i>&nbsp;- {t('navbar.subtitle')}</i>
-          </Typography>
+          <Subtitle variant="overline">
+            {t('navbar.subtitle')}
+          </Subtitle>
           <LangSelect />
           <IconButton style={{color: 'white'}} href="https://github.com/Alexis-Benamar/todo-type" target="_blank">
             <GithubIcon/>

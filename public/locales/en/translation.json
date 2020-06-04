@@ -5,9 +5,7 @@
 
   "form": {
     "title": "Title",
-    "text": "Text (optional)",
-    "submit": "Add",
-    "clear": "Clear"
+    "text": "Text (optional)"
   },
 
   "todolist": {
