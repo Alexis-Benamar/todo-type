@@ -3,13 +3,23 @@ import styled from 'styled-components'
 import { createGlobalStyle } from 'styled-components'
 import {
   AppBar,
+  createTheme,
+  ThemeProvider,
   Toolbar
-} from '@material-ui/core'
+} from '@mui/material'
 
 import Navbar from '~components/Navbar'
 import TodoForm from '~components/TodoForm'
 import TodoList from '~components/TodoList'
 import TodosProvider from '~providers/TodosProvider'
+import { indigo, pink } from '@mui/material/colors';
+
+const theme = createTheme({
+  palette: {
+    primary: indigo,
+    secondary: pink,
+  }
+})
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -36,7 +46,7 @@ const AppFallback = () => (
 )
 
 const App = () => (
-  <>
+  <ThemeProvider theme={theme}>
     <GlobalStyle/>
     <Suspense fallback={<AppFallback/>}>
       <Navbar/>
@@ -47,7 +57,7 @@ const App = () => (
         </TodosProvider>
       </AppContainer>
     </Suspense>
-  </>
+  </ThemeProvider>
 )
 
 export default App;

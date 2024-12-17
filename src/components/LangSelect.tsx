@@ -4,12 +4,18 @@ import { useTranslation } from 'react-i18next'
 import {
   MenuItem,
   Select
-} from '@material-ui/core'
+} from '@mui/material'
 
 const StyledSelect = styled(Select)`
   margin-left: auto;
 
+  box-shadow: none;
+  .MuiOutlinedInput-notchedOutline {
+    border: 0
+  };
+
   .MuiSelect-root,
+  .MuiInputBase-input,
   .MuiSelect-icon {
     color: white;
   }

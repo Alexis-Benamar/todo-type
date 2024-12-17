@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useReducer } from 'react'
+import React, { ReactNode, useContext, useEffect, useReducer } from 'react'
 
 type State = {
     todos: TodoType[]
@@ -34,7 +34,7 @@ const todosReducer = (state: State, action: Action): State => {
                     }
                 }
                 return todo
-            })} 
+            })}
         case 'clear':
             return initialState
         default:
@@ -52,7 +52,7 @@ const useTodos = () => {
     return context
 }
 
-const TodosProvider: React.FC = ({ children }) => {
+const TodosProvider = ({ children }: { children: ReactNode }) => {
     const [state, dispatch] = useReducer(todosReducer, initialState, () => {
         const localTodos = localStorage.getItem('todos')
         return localTodos ? JSON.parse(localTodos) : { todos: [] }

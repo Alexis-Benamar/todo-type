@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
-import { Fab, TextField } from '@material-ui/core'
-import AddIcon from '@material-ui/icons/Add'
-import DeleteIcon from '@material-ui/icons/Delete'
+import { Fab, TextField } from '@mui/material'
+import AddIcon from '@mui/icons-material/Add'
+import DeleteIcon from '@mui/icons-material/Delete'
 
 import { useTodos } from '~providers/TodosProvider'
 
@@ -48,6 +48,12 @@ const TodoForm: React.FC<IAddTodoForm> = ({ className }) => {
         reset()
     }
 
+    const onDelete = () => {
+        if (window.confirm(t('form.confirmDelete'))) {
+            dispatch({type: 'clear'})
+        }
+    }
+
     return (
         <TodoFormContainer onSubmit={handleSubmit(onSubmit)}>
             <TextField
@@ -65,7 +71,7 @@ const TodoForm: React.FC<IAddTodoForm> = ({ className }) => {
                 <Fab className="Button btn-add" color="secondary" type="submit">
                     <AddIcon/>
                 </Fab>
-                <Fab className="Button btn-delete" onClick={() => dispatch({type: 'clear'})} disabled={state.todos.length === 0}>
+                <Fab className="Button btn-delete" onClick={onDelete} disabled={state.todos.length === 0}>
                     <DeleteIcon/>
                 </Fab>
             </div>
