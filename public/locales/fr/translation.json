@@ -5,7 +5,8 @@
 
   "form": {
     "title": "Titre",
-    "text": "Texte (optionnel)"
+    "text": "Texte (optionnel)",
+    "confirmDelete": "Voulez-vous vraiment supprimer tous les todos ?"
   },
 
   "todolist": {

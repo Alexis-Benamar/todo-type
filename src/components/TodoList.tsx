@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
-import { Paper, Typography } from '@material-ui/core'
+import { Paper, Typography } from '@mui/material'
 
 import Todo from '~components/Todo'
 import { useTodos } from '~providers/TodosProvider'
@@ -31,7 +31,7 @@ const TodoList: React.FC<ITodoList> = ({ className }) => {
             <NoTodosText>{t('todolist.no_todos')} <span role="img" aria-label="sad emoji">😞</span></NoTodosText>
         </Paper>
     )
-    
+
     return (
         <Paper className={className}>
             {state.todos.map((todo) => (

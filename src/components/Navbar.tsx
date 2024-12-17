@@ -7,8 +7,8 @@ import {
   IconButton,
   Toolbar,
   Typography,
-} from '@material-ui/core'
-import GithubIcon from '@material-ui/icons/GitHub'
+} from '@mui/material'
+import GithubIcon from '@mui/icons-material/GitHub'
 
 import LangSelect from '~components/LangSelect'
 

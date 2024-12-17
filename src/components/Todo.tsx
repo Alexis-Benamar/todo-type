@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import { 
+import {
     Checkbox,
     IconButton,
     Typography
-} from '@material-ui/core'
-import DeleteIcon from '@material-ui/icons/Delete'
+} from '@mui/material'
+import DeleteIcon from '@mui/icons-material/Delete'
 
 import { useTodos } from '~providers/TodosProvider'
 
@@ -55,7 +55,7 @@ const Todo: React.FC<ITodoListItem> = React.memo(({ todo }) => {
                     <DeleteIcon />
                 </IconButton>
             </div>
-            {todo.text && 
+            {todo.text &&
                 <Typography className="todo-text" variant="body2">{todo.text}</Typography>
             }
         </TodoContainer>
