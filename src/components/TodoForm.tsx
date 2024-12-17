@@ -58,14 +58,12 @@ const TodoForm: React.FC<IAddTodoForm> = ({ className }) => {
         <TodoFormContainer onSubmit={handleSubmit(onSubmit)}>
             <TextField
                 required
-                name="title"
                 label={t('form.title')}
-                inputRef={register({required: true})}
+                {...register("title", { required: true })}
             />
             <TextField
-                name="text"
                 label={t('form.text')}
-                inputRef={register}
+                {...register('text')}
             />
             <div className="form-actions">
                 <Fab className="Button btn-add" color="secondary" type="submit">

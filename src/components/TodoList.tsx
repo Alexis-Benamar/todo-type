@@ -26,11 +26,13 @@ const TodoList: React.FC<ITodoList> = ({ className }) => {
         <Todo todo={todo} />
     ))
 
-    if (state.todos.length === 0) return(
-        <Paper className={className}>
-            <NoTodosText>{t('todolist.no_todos')} <span role="img" aria-label="sad emoji">😞</span></NoTodosText>
-        </Paper>
-    )
+    if (state.todos.length === 0) {
+        return(
+            <NoTodosText>
+                {t('todolist.no_todos')} <span role="img" aria-label="sad emoji">😞</span>
+            </NoTodosText>
+        )
+    }
 
     return (
         <Paper className={className}>

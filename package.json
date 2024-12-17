@@ -21,7 +21,7 @@
     "i18next-http-backend": "^3.0.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-hook-form": "^5.7.2",
+    "react-hook-form": "^7.54.1",
     "react-i18next": "^15.2.0",
     "react-scripts": "^5.0.1",
     "styled-components": "^6.1.13",
